@@ -7,14 +7,14 @@ indent() {
 echo "-----> Install ffmpeg"
 BUILD_DIR=$1
 VENDOR_DIR="vendor"
-DOWNLOAD_URL="http://www.aksiom.net/stuff/ffmpeg-git-20141127-64bit-static.tar.xz"
+DOWNLOAD_URL="https://s3-ap-southeast-1.amazonaws.com/strengthandwill/ffmpeg.tar.gz"
 
 echo "DOWNLOAD_URL = " $DOWNLOAD_URL | indent
 
 cd $BUILD_DIR
 mkdir -p $VENDOR_DIR
 cd $VENDOR_DIR
-curl -L --silent $DOWNLOAD_URL | tar Jx
+curl -L --silent $DOWNLOAD_URL | tar zx
 
 echo "exporting PATH and LIBRARY_PATH" | indent
 PROFILE_PATH="$BUILD_DIR/.profile.d/ffmpeg.sh"
